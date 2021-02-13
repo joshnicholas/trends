@@ -4,7 +4,7 @@ import datetime
 import json
 import requests
 
-csv_path = '/data/wiki_trends.csv'
+csv_path = 'data/wiki_trends.csv'
 
 utc_now = datetime.datetime.utcnow()
 utc_then = utc_now - datetime.timedelta(days=1)

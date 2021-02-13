@@ -13,7 +13,7 @@ heado.insert(0, "What")
 heado.append("Date")
 heado.append("Hour")
 
-csv_path = '/data/Aus_google_trends.csv'
+csv_path = 'data/Aus_google_trends.csv'
 old_df = pd.read_csv(csv_path)
 
 current_day = old_df[old_df['Date'] == bris_reverse_date]
