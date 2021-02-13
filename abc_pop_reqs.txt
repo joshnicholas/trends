@@ -1,0 +1,6 @@
+pandas
+requests
+datetime
+requests
+bs4
+pytz
