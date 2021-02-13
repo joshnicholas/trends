@@ -23,7 +23,7 @@ jobs:
         run: pip install -r guardian_pop_reqs.txt
         
       - name: 🍳 Update dataset
-        run: python graun_trends.py
+        run: python graun_pop.py
         
       - name: 🚀 Commit and push if it changed
         run: |
