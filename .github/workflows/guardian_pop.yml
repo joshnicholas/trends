@@ -1,4 +1,4 @@
-name: guardian_mw_scraper.py
+name: guardian_pop.py
 
 on:
   push:
