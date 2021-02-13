@@ -1,4 +1,4 @@
-name: guardian_pop.py
+name: guardian_pop
 
 on:
   push:
