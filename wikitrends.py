@@ -7,7 +7,7 @@ import requests
 csv_path = 'wiki_trends.csv'
 
 utc_now = datetime.datetime.utcnow()
-utc_then = utc_now - datetime.timedelta(days=2)
+utc_then = utc_now - datetime.timedelta(days=1)
 
 utc_month = datetime.date.strftime(utc_then, '%m')
 utc_year = datetime.date.strftime(utc_then, '%Y')
@@ -44,6 +44,7 @@ old_df = pd.read_csv(csv_path)
 
 old_df = old_df.append(melted)
 old_df = old_df.drop_duplicates(subset="UTC Date")
+old_df = old_df.sort_values(by=["UTC Date"], ascending=True)
 
 with open(csv_path, "w") as f:
     old_df.to_csv(f, index=False, header=True)
