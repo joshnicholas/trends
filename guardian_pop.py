@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as bs
 import pytz
 import datetime
 
-csv_path = 'guardian_most_viewed.csv'
+csv_path = 'guardian_pop.csv'
 old_df = pd.read_csv(csv_path)
 
 utc_now = pytz.utc.localize(datetime.datetime.utcnow())
