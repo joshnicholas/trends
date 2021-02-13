@@ -1,3 +1,0 @@
-xml-python
-requests
-pandas
