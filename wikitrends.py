@@ -7,7 +7,7 @@ import requests
 csv_path = 'wiki_trends.csv'
 
 utc_now = datetime.datetime.utcnow()
-utc_then = utc_now - datetime.timedelta(days=1)
+utc_then = utc_now - datetime.timedelta(days=2)
 
 utc_month = datetime.date.strftime(utc_then, '%m')
 utc_year = datetime.date.strftime(utc_then, '%Y')
