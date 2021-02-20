@@ -25,13 +25,14 @@ driver.get(start_url)
 soup = bs(driver.page_source.encode("utf-8"), 'html.parser')
 
 container = soup.find("div", {"id": "topcol1"})
-divs = container.find_all(class_="item")
-items = [{"Tech Meme Top Stories":f"{div.find('strong').text.strip()}"} for div in divs][:15]
+divs = container.find_all("div", class_="clus")
+items = [{"Tech Meme Top Stories":f"{div.find('strong').text.strip()}"} for div in divs][:10]
 
 df = pd.DataFrame(items)
 
+
 df = df.T.reset_index()
-headers = [f"{x}" for x in range(0,15)]
+headers = [f"{x}" for x in range(0,10)]
 headers.insert(0, "What")
 df.columns = headers
 
@@ -50,4 +51,3 @@ old_df = old_df.sort_values(by=["Date", "Hour"], ascending=True)
 
 with open(csv_path, "w") as f:
     old_df.to_csv(f, index=False)
-
