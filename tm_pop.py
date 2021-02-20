@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 
-csv_path = '/Users/josh/Dropbox/Coding/Github/trends/data/tech_meme_pop.csv'
+csv_path = 'data/tech_meme_pop.csv'
 old_df = pd.read_csv(csv_path)
 
 utc_now = pytz.utc.localize(datetime.datetime.utcnow())
