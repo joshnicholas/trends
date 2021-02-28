@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as bs
 import pytz
 import datetime
 
+
 csv_path = 'data/guardian_pop.csv'
 old_df = pd.read_csv(csv_path)
 
@@ -27,6 +28,7 @@ df.columns = headers
 
 df['Date'] = bris_reverse_date
 df['Hour'] = bris_hour
+
 
 old_df = old_df.append(df)
 
