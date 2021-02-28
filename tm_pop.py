@@ -66,13 +66,12 @@ except Exception as e:
     print(e)
     pass
 
-
 old_df['Hour'] = old_df['Hour'].astype(str)
 old_df['Date'] = old_df['Date'].astype(str)
 
 old_df['Hour'] = old_df['Hour'].apply(lambda x: '0' + x if len(x) < 2 else x)
 
-old_df = old_df.drop_duplicates(subset=["Date", "Hour"])
+old_df = old_df.drop_duplicates(subset=["What", "Date", "Hour"])
 old_df = old_df.sort_values(by=["Date", "Hour"], ascending=True)
 
 
