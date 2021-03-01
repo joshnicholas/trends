@@ -66,6 +66,32 @@ except Exception as e:
     print(e)
     pass
 
+try: 
+    af_r = requests.get('https://www.afr.com/technology')
+    af_soup = bs(af_r.text, 'html.parser')
+    af_finder = af_soup.find("section", class_='gu05R')
+    af_list = af_finder.find("ol")
+    af_items = af_list.find_all("h3")
+
+    af_items = [{"AFR tech most viewed":f"{x.a.text.strip()}"} for x in af_items]
+    sec_items = [{"AFR tech most viewed": "nan"} for x in range(0,5)]
+    af_items = af_items + sec_items
+    # print(sec_items)
+    af_df = pd.DataFrame(af_items)
+
+    af_df = af_df.T.reset_index()
+    af_headers =  [f"{x}" for x in range(0,10)]
+    af_headers.insert(0, "What")
+    af_df.columns = af_headers
+
+    af_df['Date'] = bris_reverse_date
+    af_df['Hour'] = bris_hour
+
+    old_df = old_df.append(af_df)
+except Exception as e:
+    print(e)
+    pass
+
 old_df['Hour'] = old_df['Hour'].astype(str)
 old_df['Date'] = old_df['Date'].astype(str)
 
